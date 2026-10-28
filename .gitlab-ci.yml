@@ -1,0 +1,21 @@
+#stages:
+#  - test
+#
+#variables:
+#  TEST_ENV: "test"          # 默认测试环境
+#  BASE_URL: ""              # 可由 CI 变量覆盖
+#
+#before_script:
+#  - pip install -r requirements.txt
+#
+#test:
+#  stage: test
+#  script:
+#    - python run_tests.py --env=$TEST_ENV --html=reports/report.html --self-contained-html
+#  artifacts:
+#    paths:
+#      - reports/
+#    expire_in: 30 days
+#  only:
+#    - merge_requests
+#    - main

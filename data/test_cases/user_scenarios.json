@@ -1,0 +1,14 @@
+[
+    {
+        "case_name": "正常登录",
+        "endpoint": "/auth/login",
+        "payload": {"username": "valid_user", "password": "pass123"},
+        "expected_status": 200
+    },
+    {
+        "case_name": "错误密码登录",
+        "endpoint": "/auth/login",
+        "payload": {"username": "valid_user", "password": "wrong_pass"},
+        "expected_status": 401
+    }
+]

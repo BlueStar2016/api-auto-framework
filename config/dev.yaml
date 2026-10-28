@@ -1,0 +1,10 @@
+base_url: "http://10.9.201.211:30100"
+login:
+  url: "/iam/api/base/login"
+  username: "order"
+  password: "Order@2026"
+  lark_id: "iam_order801"
+  token_key: "access_token"
+order_api: "/order/api/v2/"
+plm_api: "/plm/api/v1/"
+cmdb_api: "/cmdb/api/v1/"

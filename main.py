@@ -1,16 +1,23 @@
-# 这是一个示例 Python 脚本。
+import sys
+import pytest
 
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
+if __name__ == "__main__":
+    # 可以通过命令行参数传递环境
+    # python run_tests.py --env=test
+    args = sys.argv[1:] if len(sys.argv) > 1 else []
 
+    # 默认参数
+    default_args = [
+        "-v",  # 详细输出
+        "--html=reports/report.html",  # HTML 报告
+        "--self-contained-html",  # 独立 HTML
+        "--maxfail=5",  # 失败 5 次后停止
+        "-n", "2",  # 并行执行（需安装 pytest-xdist）
+        "tests/"  # 测试目录
+    ]
 
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
+    final_args = default_args + args
 
-
-# 按间距中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+    # 运行 pytest
+    exit_code = pytest.main(final_args)
+    sys.exit(exit_code)
